@@ -1,6 +1,6 @@
 # react-native-build-vesion-getter
 
-✨ Get easy version code and name from your app without access any permissions or extra info (lightweight alternative to react-native-device-info basically), works on Android an iOS only.
+✨ Get easy version code and name from your app without access any permissions or extra info (lightweight alternative to react-native-device-info basically), works on Android and iOS only.
 
 ## Installation
 
@@ -26,11 +26,11 @@ function App() {
 
 |prop | type    | default | description|
 |----|---------|---------|-------------|
-|name | string  | ""      | version name something like '4.79.3', this is a empty string before its done|
+|name | string  | ""      | version name something like '4.79.3', this is an empty string before its done|
 |code | number  | 0       | version code something like 18, its 0 before its done|
-|done | boolean | false   | this library get in async way the code and name so, before this values are getted this is false, and helps to know when name and code are recovered or errored turning into true after that|
+|done | boolean | false   | this library get in async way the code and name so, before this values are getted is false, and helps to know when name and code are recovered or errored turning into true after that|
 
-Pd. yes, I notice the typo, its 3AM we'll have to live with that until I get more free time
+Pd. yes, I notice the typo, it's 3AM we'll have to live with that until I get more free time
 
 ## License
 
