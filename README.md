@@ -10,12 +10,18 @@ npm i -s react-native-build-vesion-getter
 
 ## Usage
 
-```js
+```jsx
 import useVersion from 'react-native-build-vesion-getter'
 
-// ...
+function App() {
+  const { name, code, done } = useVersion()
 
-const { name, code, done } = useVersion()
+  return (
+    <View>
+      { done && <Text>{code} - {name}</Text> }
+    </View>
+  )
+}
 ```
 
 |prop | type    | default | description|
