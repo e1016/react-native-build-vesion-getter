@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
@@ -17,6 +18,27 @@ const BuildVesionGetter = NativeModules.BuildVesionGetter
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return BuildVesionGetter.multiply(a, b);
+type ReactNativeBuildVesionGetterProps = {
+  name: string;
+  code: number;
+  done: boolean;
+};
+
+export default function useVersion(): ReactNativeBuildVesionGetterProps {
+  const [version, setVersion] = useState<ReactNativeBuildVesionGetterProps>({
+    name: '',
+    code: 0,
+    done: false,
+  });
+
+  useEffect(() => {
+    BuildVesionGetter.getVersionName().then((name: string) =>
+      BuildVesionGetter.getVersionCode().then((code: number) =>
+        // ios dont let me send integer, so i send string and cast...
+        setVersion({ name, code: +code, done: true })
+      )
+    );
+  }, []);
+
+  return version;
 }
